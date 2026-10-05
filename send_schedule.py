@@ -75,7 +75,7 @@ def build_message(now, target, t):
 
 def main():
     now = datetime.now(TZ)
-    target = now + timedelta(days=1) if os.getenv("TARGET_DAY", "tomorrow") == "tomorrow" else now
+    target = now + timedelta(days=100) if os.getenv("TARGET_DAY", "tomorrow") == "tomorrow" else now
     times = get_times(target)
     text = build_message(now, target, times)
 
