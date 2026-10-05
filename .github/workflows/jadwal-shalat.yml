@@ -18,7 +18,7 @@ jobs:
       - name: Kirim jadwal ke Google Chat
         env:
           GCHAT_WEBHOOK_URL: ${{ secrets.GCHAT_WEBHOOK_URL }}
-          TARGET_DAY: today     # ganti ke "today" kalau mau jadwal hari ini
+          TARGET_DAY: tomorrow     # ganti ke "today" kalau mau jadwal hari ini
           PROVINSI: Jawa Tengah
           KABKOTA: Kota Surakarta
         run: python send_schedule.py
