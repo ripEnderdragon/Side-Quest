@@ -3,7 +3,7 @@ name: Jadwal Shalat Harian
 on:
   schedule:
     # GitHub Actions memakai UTC. 23:00 UTC = 06:00 WIB (hari berikutnya).
-    - cron: "0 23 * * *"
+    - cron: "0 14 * * *"
   workflow_dispatch:   # tombol "Run workflow" untuk tes manual
 
 jobs:
