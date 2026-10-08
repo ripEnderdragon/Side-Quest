@@ -17,7 +17,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Kirim jadwal ke Google Chat
         env:
-          GCHAT_WEBHOOK_URL: ${{ secrets.GCHAT_WEBHOOK_URL_RAVIN }}
+          GCHAT_WEBHOOK_URL: ${{ secrets.GCHAT_WEBHOOK_URL }}
           TARGET_DAY: today     # ganti ke "today" kalau mau jadwal hari ini
           PROVINSI: Jawa Tengah
           KABKOTA: Kota Surakarta
