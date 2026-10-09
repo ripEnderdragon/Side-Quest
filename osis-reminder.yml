@@ -1,0 +1,30 @@
+name: OSIS Reminder
+
+on:
+  schedule:
+    # 09:00 UTC = 16:00 WIB, tiap hari
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: "Simulasi 'hari ini' (YYYY-MM-DD), kosongkan untuk hari ini"
+        required: false
+      dry_run:
+        description: "Dry run (tidak kirim ke Google Chat)"
+        type: boolean
+        default: true
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Jalankan reminder
+        env:
+          GCHAT_WEBHOOK_URL: ${{ secrets.GCHAT_WEBHOOK_URL }}
+          TARGET_DATE: ${{ github.event.inputs.target_date }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: python reminder.py
